@@ -1,0 +1,16 @@
+CSV_NAME: insurance_dataset.csv
+KAGGLE_DATASET: sridharstreaks/insurance-data-for-machine-learning
+
+OHE_FEATURES:
+  - gender
+  - smoker
+  - region
+  - medical_history
+  - family_medical_history
+  - exercise_frequency
+  - occupation
+  - coverage_level
+
+CATEGORICAL_IMPUTER_FEATURES: 
+  - medical_history
+  - family_medical_history
