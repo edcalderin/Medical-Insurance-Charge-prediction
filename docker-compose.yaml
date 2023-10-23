@@ -1,0 +1,19 @@
+services:
+  backend_app:
+    build: .
+    environment:
+      - KAGGLE_USERNAME=$KAGGLE_USERNAME
+      - KAGGLE_KEY=$KAGGLE_KEY
+      - PYTHONPATH=.
+      - BACKEND_PORT=$BACKEND_PORT
+    ports:
+      - $BACKEND_PORT:$BACKEND_PORT
+  
+  frontend_streamlit:
+    build: 
+      context: frontend_streamlit
+      dockerfile: Dockerfile
+    environment:
+      - ENDPOINT_URL=http://backend_app:8080
+    ports:
+      - 8501:8501

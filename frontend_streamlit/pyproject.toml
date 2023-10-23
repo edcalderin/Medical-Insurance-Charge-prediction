@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "streamlit_ui"
+name = "streamlit-ui"
 version = "0.1.0"
-description = "Streamlit UI application"
-authors = ["Erick <you@example.com>"]
+description = "Streamlit UI application for Medical Insurance Charges prediction"
+authors = ["Your Name <you@example.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

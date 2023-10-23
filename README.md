@@ -28,10 +28,11 @@
 ## Setup
 
 1. Rename `.env.example` to `.env` and set your Kaggle credentials in this file.
-2. Run `bash src/script.sh` to download dataset from Kaggle
-
 
 ## Notebooks
 
 Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a yaml file containing other global properties.
 
+## Streamlit UI
+
+![Alt text](./images/streamlit-ui.png)

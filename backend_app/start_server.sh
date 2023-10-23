@@ -1,0 +1,1 @@
+uvicorn --host=0.0.0.0 --port=$BACKEND_PORT api:app
