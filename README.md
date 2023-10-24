@@ -52,13 +52,11 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 ## Setup
 
 1. Rename `.env.example` to `.env` and set your Kaggle credentials in this file.
-
-* Sign into [Kaggle account](https://www.kaggle.com).
-* Go to https://www.kaggle.com/settings
-* Click on `Create new Token` to download the `kaggle.json` file
-* Copy `username` and `key` values and past them into `.env` variables respectively.
-
-2. Make installation:
+2. Sign into [Kaggle account](https://www.kaggle.com).
+3. Go to https://www.kaggle.com/settings
+4. Click on `Create new Token` to download the `kaggle.json` file
+5. Copy `username` and `key` values and past them into `.env` variables respectively.
+6. Make installation:
 
 <!--ts-->
 * For UNIX-based systems and Windows (WSL), you do not need to install make.
