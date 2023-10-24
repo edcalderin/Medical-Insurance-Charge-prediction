@@ -1,9 +1,10 @@
-from kaggle.api.kaggle_api_extended import KaggleApi
-from zipfile import ZipFile, BadZipFile
-import os
 import logging
+import os
 from pathlib import Path
+from zipfile import BadZipFile, ZipFile
+
 from config.config import params
+from kaggle.api.kaggle_api_extended import KaggleApi
 
 logging.info('authenticating...')
 
@@ -51,7 +52,8 @@ class FetchKaggleDataset:
 
     def get_dataset(self):
         if self.__exists_dataset():
-            logging.info(f'dataset with name "{current_directory/params["csv_name"]}" already exists')
+            dataset_name: str = current_directory/params["csv_name"]
+            logging.info(f'dataset with name "{dataset_name}" already exists')
             return
         
         self.__fetch_from_kaggle()

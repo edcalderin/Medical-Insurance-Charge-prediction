@@ -1,13 +1,15 @@
-import pandas as pd
+import logging
+import pickle
 from pathlib import Path
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import make_scorer, mean_squared_error
+
+import pandas as pd
 from feature_engine.encoding import OneHotEncoder
 from feature_engine.imputation import CategoricalImputer
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import make_scorer, mean_squared_error
+from sklearn.model_selection import KFold, cross_val_score
 from sklearn.pipeline import Pipeline
-from sklearn.model_selection import cross_val_score, KFold
-import pickle
-import logging
+
 
 class ModelTrainer:
     def __init__(self, params: dict) -> None:
@@ -31,7 +33,8 @@ class ModelTrainer:
         
         if not self.__pipeline:
             self.__pipeline = Pipeline(steps=[
-                ('categorical imputer', CategoricalImputer(fill_value='Healthy', variables=self.params['categorical_imputer_features'])),
+                ('categorical imputer', CategoricalImputer(fill_value='Healthy', 
+                                                           variables=self.params['categorical_imputer_features'])),
                 ('ohe', OneHotEncoder(variables=self.params['ohe_features'], ignore_format=True)),
                 ('lr', LinearRegression(n_jobs=-1))
             ])

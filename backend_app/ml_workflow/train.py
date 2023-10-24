@@ -1,12 +1,13 @@
-import pandas as pd
+import logging
 from pathlib import Path
+
+import pandas as pd
+from config.config import params
 from feature_engine.encoding import OneHotEncoder
 from feature_engine.imputation import CategoricalImputer
-from sklearn.pipeline import Pipeline
-from sklearn.model_selection import train_test_split
-from config.config import params
-import logging
 from model_trainer import ModelTrainer
+from sklearn.model_selection import train_test_split
+from sklearn.pipeline import Pipeline
 
 current_directory = Path(__file__).parent
 source_directory = current_directory.parent

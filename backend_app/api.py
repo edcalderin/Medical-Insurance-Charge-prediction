@@ -1,10 +1,11 @@
 from pathlib import Path
+
+from config.config import params
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from fetch_kaggle_dataset import FetchKaggleDataset
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
-from fetch_kaggle_dataset import FetchKaggleDataset
-from config.config import params
 
 app = FastAPI(title=params['title'])
 

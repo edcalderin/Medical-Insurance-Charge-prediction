@@ -1,8 +1,10 @@
-from pathlib import Path
-from sklearn.pipeline import Pipeline
 import pickle
+from pathlib import Path
+
 import pandas as pd
 from schemas.customer import Customer
+from sklearn.pipeline import Pipeline
+
 
 class ModelPredict:
     def __init__(self, pipeline_path: Path) -> None:
