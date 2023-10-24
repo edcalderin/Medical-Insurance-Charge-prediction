@@ -53,9 +53,22 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 
 1. Rename `.env.example` to `.env` and set your Kaggle credentials in this file.
 
+* Sign into [https://www.kaggle.com] Kaggle account.
+* Go to https://www.kaggle.com/settings
+* Click on `Create new Token` to download the `kaggle.json` file
+* Copy `username` and `key` values and past them into `.env` variables respectively.
+
+2. Make installation:
+
+* For UNIX-based systems and Windows (WSL), you do not need to install make.
+* For Windows without WSL: 
+
+- Install chocolatey from [https://chocolatey.org/install] here  
+- Then, `choco install make`.
+
 ## Running the app
 
-Run `make start_services` in order to start the following services
+Run `make start_services` which uses Docker (recommendable) in order to start the following services:
 
 * `http://localhost:8501`: Streamlit UI
 * `http://localhost:8080`: Backend service
@@ -64,17 +77,27 @@ The output should look like this:
 
 ![Alt text](./images/output.png)
 
-### Streamlit UI
+* ### Streamlit UI
+
+User interface designed using Streamlit and meant to interact with backend endpoints:
 
 ![Alt text](./images/streamlit-ui.png)
 
-### Backend API Swagger
+* ### Backend API Swagger
+
+Swagger documentation for FastAPI backend:
 
 ![Alt text](./images/swagger.png)
 
 ## Notebooks
 
-Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a yaml file containing other global properties.
+Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a yaml [a relative link](./backend_app/config/params.yaml) file containing other global properties.
+
+To reproduce the notebooks, you will need to install and activate the Poetry environment.
+
+* Run `pip install poetry`
+* Make sure you are in the project root directory, then run `poetry install`
+* Select the kernel interpreter from VSCode or run `jupyter notebook` from the terminal.
 
 ## References
 
