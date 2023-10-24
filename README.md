@@ -1,9 +1,13 @@
 # Medical Insurance Prediction
-*Machine Learning Zoomcap Mid-term project*
 
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 
+*Machine Learning Zoomcap Mid-term project*
+
 ![Alt text](./images/cover.webp)
+<p align="center">
+  <i>Image credits: <a href='https://www.forbes.com/advisor/health-insurance/how-much-does-health-insurance-cost/'>Forbes article</a></i>
+</p>
 
 ## Table of Contents
 
@@ -19,13 +23,12 @@
 <!--te-->
 
 ## Problem statement
-===
 
 The Health Insurance Premium Prediction Database for the United States" is a compilation of information regarding a range of elements that have an impact on healthcare expenses and insurance premiums in the United States. This database encompasses details on ten distinct variables, encompassing age, gender, body mass index (BMI), the number of dependents, smoking habits, geographical location, income level, educational attainment, profession, and the nature of the insurance plan. The dataset was constructed using a program that produced a million records of randomly selected data points, ensuring the dataset accurately represents the insured population in the United States. This dataset can be harnessed for the creation and validation of machine learning models to anticipate insurance premiums and investigate the interplay among various factors and medical expenditures.
 
 
 ## Directory layout
-===================
+
 ```
 .
 ├── .github                          # CI/CD workflows
@@ -47,12 +50,10 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 ```
 
 ## Setup
-========
 
 1. Rename `.env.example` to `.env` and set your Kaggle credentials in this file.
 
 ## Running the app
-==================
 
 Run `make start_services` in order to start the following services
 
@@ -72,12 +73,10 @@ The output should look like this:
 ![Alt text](./images/swagger.png)
 
 ## Notebooks
-============
 
 Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a yaml file containing other global properties.
 
 ## References
-=============
 
 * [Dataset] https://www.kaggle.com/datasets/sridharstreaks/insurance-data-for-machine-learning
 
