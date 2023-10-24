@@ -1,4 +1,4 @@
-name: Medical Insurance Charges Prediction - linter
+name: Linter
 
 on:
     pull_request: 
@@ -9,9 +9,16 @@ on:
         - frontend_streamlit
 
 jobs:
-    ruff:
+    linter:
         runs-on: ubuntu-latest
         steps:
-          - uses: actions/checkout@v3
-          - uses: chartboost/ruff-action@v1
+            - name: Checkout
+              uses: actions/checkout@v3
 
+            - name: Set up Python 3.11
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.11'
+
+            - name: Ruff linter
+              uses: chartboost/ruff-action@v1
