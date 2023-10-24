@@ -4,8 +4,9 @@ from fastapi.responses import HTMLResponse
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
 from fetch_kaggle_dataset import FetchKaggleDataset
+from config.config import params
 
-app = FastAPI()
+app = FastAPI(title=params['title'])
 
 current_directory = Path(__file__).parent
 modelPredict = ModelPredict(current_directory/'pipeline.pkl')
@@ -13,7 +14,7 @@ modelPredict = ModelPredict(current_directory/'pipeline.pkl')
 fetch_dataset = FetchKaggleDataset()
 fetch_dataset.get_dataset()
 
-@app.get('/')
+@app.get('/', name='Welcome endpoint', description='Generates a HTML output')
 def root():
     return HTMLResponse(
         '''
@@ -23,7 +24,7 @@ def root():
         </html>
         ''')
 
-@app.post('/predict')
+@app.post('/predict', name='Prediction endpoint', description='Endpoint to make a prediction')
 def predict(customer: Customer):
     prediction = modelPredict.predict(customer)
     return {'prediction': prediction}

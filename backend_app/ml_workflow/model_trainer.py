@@ -31,8 +31,8 @@ class ModelTrainer:
         
         if not self.__pipeline:
             self.__pipeline = Pipeline(steps=[
-                ('categorical imputer', CategoricalImputer(fill_value='Healthy', variables=self.params['CATEGORICAL_IMPUTER_FEATURES'])),
-                ('ohe', OneHotEncoder(variables=self.params['OHE_FEATURES'], ignore_format=True)),
+                ('categorical imputer', CategoricalImputer(fill_value='Healthy', variables=self.params['categorical_imputer_features'])),
+                ('ohe', OneHotEncoder(variables=self.params['ohe_features'], ignore_format=True)),
                 ('lr', LinearRegression(n_jobs=-1))
             ])
 

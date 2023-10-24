@@ -1,7 +1,9 @@
-CSV_NAME: insurance_dataset.csv
-KAGGLE_DATASET: sridharstreaks/insurance-data-for-machine-learning
+title: 'Medical Insurance Charges Prediction API'
 
-OHE_FEATURES:
+csv_name: insurance_dataset.csv
+kaggle_dataset: sridharstreaks/insurance-data-for-machine-learning
+
+ohe_features:
   - gender
   - smoker
   - region
@@ -11,6 +13,6 @@ OHE_FEATURES:
   - occupation
   - coverage_level
 
-CATEGORICAL_IMPUTER_FEATURES: 
+categorical_imputer_features: 
   - medical_history
   - family_medical_history

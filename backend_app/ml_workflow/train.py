@@ -24,9 +24,9 @@ def preprocess(X, y, params: dict)->pd.DataFrame:
     steps = [
         ('categorical imputer', CategoricalImputer(
             fill_value='Healthy', 
-            variables=params['CATEGORICAL_IMPUTER_FEATURES'])
+            variables=params['categorical_imputer_features'])
         ),
-        ('ohe', OneHotEncoder(variables=params['OHE_FEATURES'], ignore_format=True))
+        ('ohe', OneHotEncoder(variables=params['ohe_features'], ignore_format=True))
     ]
 
     pipeline = Pipeline(steps)    
@@ -34,7 +34,7 @@ def preprocess(X, y, params: dict)->pd.DataFrame:
     
 def main(params: dict):
     logging.info('splitting dataset...')
-    X_train, X_test, y_train, y_test = split_dataset(source_directory/params['CSV_NAME'])
+    X_train, X_test, y_train, y_test = split_dataset(source_directory/params['csv_name'])
 
     logging.info('preprocessing train dataset...')
     processed_full_train = preprocess(X_train, y_train, params)  

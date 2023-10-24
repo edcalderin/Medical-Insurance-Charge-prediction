@@ -6,21 +6,20 @@
 ![Alt text](./images/cover.webp)
 
 ## Table of Contents
-====================
 
 <!--ts-->
-1. [Problem statement](#problem-statement)
-2. [Directory layout](#directory-layout)
-3. [Setup](#setup)
-4. [Running the app](#running-the-app)
-    4.5. [Streamlit UI](#streamlit-ui)
-    4.6. [Backend API Swagger](#backend-api-swagger)
-5. [Notebooks](#notebooks)
-6. [References](#references)
+* [Problem statement](#problem-statement)
+* [Directory layout](#directory-layout)
+* [Setup](#setup)
+* [Running the app](#running-the-app)
+    * [Streamlit UI](#streamlit-ui)
+    * [Backend API Swagger](#backend-api-swagger)
+* [Notebooks](#notebooks)
+* [References](#references)
 <!--te-->
 
 ## Problem statement
-====================
+===
 
 The Health Insurance Premium Prediction Database for the United States" is a compilation of information regarding a range of elements that have an impact on healthcare expenses and insurance premiums in the United States. This database encompasses details on ten distinct variables, encompassing age, gender, body mass index (BMI), the number of dependents, smoking habits, geographical location, income level, educational attainment, profession, and the nature of the insurance plan. The dataset was constructed using a program that produced a million records of randomly selected data points, ensuring the dataset accurately represents the insured population in the United States. This dataset can be harnessed for the creation and validation of machine learning models to anticipate insurance premiums and investigate the interplay among various factors and medical expenditures.
 

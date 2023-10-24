@@ -21,18 +21,18 @@ class FetchKaggleDataset:
         return api
     
     def __exists_dataset(self):
-        CSV_FILE = Path(current_directory/self.params['CSV_NAME'])        
+        CSV_FILE = Path(current_directory/self.params['csv_name'])        
         return CSV_FILE.exists()
             
     def __fetch_from_kaggle(self):    
         try:
-            KAGGLE_DATASET: str = self.params["KAGGLE_DATASET"]
+            kaggle_dataset: str = self.params['kaggle_dataset']
             
-            logging.info(f'downloading dataset "{KAGGLE_DATASET}" from Kaggle')
+            logging.info(f'downloading dataset "{kaggle_dataset}" from Kaggle')
             
-            self.api.dataset_download_files(KAGGLE_DATASET)
+            self.api.dataset_download_files(kaggle_dataset)
             
-            zip_filename = Path(KAGGLE_DATASET).name
+            zip_filename = Path(kaggle_dataset).name
             zip_filename = f'{zip_filename}.zip'
         
             logging.info('unzipping...')
@@ -51,11 +51,11 @@ class FetchKaggleDataset:
 
     def get_dataset(self):
         if self.__exists_dataset():
-            logging.info(f'dataset with name "{current_directory/params["CSV_NAME"]}" already exists')
+            logging.info(f'dataset with name "{current_directory/params["csv_name"]}" already exists')
             return
         
         self.__fetch_from_kaggle()
         
-if __name__ == "__main__":
+if __name__ == '__main__':
     fetcher = FetchKaggleDataset()
     fetcher.get_dataset()
