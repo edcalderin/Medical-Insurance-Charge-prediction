@@ -13,5 +13,5 @@ train:
 start_ui:
 	cd streamlit_ui && streamlit run app.py
 
-docker_compose:
+start_services:
 	docker-compose up --build
