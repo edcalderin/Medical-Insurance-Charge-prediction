@@ -88,11 +88,13 @@ Swagger documentation for FastAPI backend:
 
 ![Alt text](./images/swagger.png)
 
+Stop the services with `docker-compose down`
+
 ## Notebooks
 
 Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a [yaml file](./backend_app/config/params.yaml) file containing other global properties.
 
-To reproduce the notebooks, you will need to install and activate the Poetry environment.
+To reproduce the notebooks, you will need to install the Poetry environment.
 
 * Run `pip install poetry`
 * Make sure you are in the project root directory, then run `poetry install`
