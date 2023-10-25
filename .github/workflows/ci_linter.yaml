@@ -1,9 +1,7 @@
-name: Linter
+name: CI - Linter
 
 on:
-    pull_request: 
-        branches:
-        - master
+    pull_request:
         paths: 
         - backend_app/**
         - frontend_streamlit/**
