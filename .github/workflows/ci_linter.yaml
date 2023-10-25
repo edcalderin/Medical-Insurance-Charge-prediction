@@ -1,7 +1,10 @@
 name: CI - Linter
 
-on: [pull_request]
-       
+on: 
+  pull_request:
+    paths:
+      - backend_app/**
+      - frontend_streamlit/**
 
 jobs:
     linter:
