@@ -15,9 +15,12 @@
 * [Problem statement](#problem-statement)
 * [Directory layout](#directory-layout)
 * [Setup](#setup)
-* [Running the app](#running-the-app)
+* [Running the app (Docker)](#running-the-app)
     * [Streamlit UI](#streamlit-ui)
-    * [Backend API Swagger](#backend-api-swagger)
+    * [Backend service](#backend-service)
+* [Running the app (Manually)](#running-the-app)
+    * [Backend service](#backend-service)
+    * [Streamlit UI](#streamlit-ui)
 * [Notebooks](#notebooks)
 * [References](#references)
 <!--te-->
@@ -64,13 +67,12 @@ The Health Insurance Premium Prediction Database for the United States" is a com
     * Then, `choco install make`.
 <!--te-->
 
-## Running the app
+## Running the app (Docker)
 
-Run `make start_services` which fetches the dataset from Kaggle, train the model and start the services using docker-compose:
+Run `make start_services` to start the services using docker-compose:
 
-* `http://localhost:8501`: Streamlit UI
-* `http://localhost:8080`: Backend service
-
+* `http://localhost:8501` (Streamlit UI)
+* `http://localhost:8080` (Backend service): Not only start a Uvicorn server, but fetches the dataset from Kaggle and train the model in the startup app.
 
 The output should look like this:
 
@@ -82,29 +84,49 @@ User interface designed using Streamlit and meant to interact with backend endpo
 
 ![Alt text](./images/streamlit-ui.png)
 
-* ### Backend API Swagger
+* ### Backend service
 
 Swagger documentation for FastAPI backend:
 
 ![Alt text](./images/swagger.png)
 
-Stop the services with `docker-compose down`
+* Stop the services with `docker-compose down`
+
+## Running the app (Manually)
+
+### Backend service
+
+A virtual environment will be needed to run the app manually, run the following commands from root project directory:
+
+1. `pip install poetry`
+2. `poetry shell`
+3. `poetry install`
+4. `make start_server`
+5. (Optional) Go to `http://localhost:8080`
+
+### Frontend UI
+
+1. Open a new terminal.
+2. Run `deactivate` just in case if the backend service environment is activated.
+3. `cd frontend_streamlit`
+4. `poetry shell` *Make sure the environment is activated by running `poetry env info`*
+5. `poetry install`
+6. Set the enpoint url variable: `export ENDPOINT_URL=http://localhost:8080`
+7. `streamlit run app.py`
+8. Go to `http://localhost:8501`
 
 ## Notebooks
 
 Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a [yaml file](./backend_app/config/params.yaml) file containing other global properties.
 
-To reproduce the notebooks, you will need to install the Poetry environment.
-
-* Run `pip install poetry`
-* Make sure you are in the project root directory, then run `poetry install`
+To reproduce the notebooks, you will need to follow the steps 1 to 3 from [Backend service](#backend-api-swagger)
 
 From VSCode
 
 * Open the noteboook and select the kernel interpreter from VSCode 
 
 From Jupyter Notebook:
-* Run `jupyter notebook` from the terminal.
+* Run `jupyter notebook` in the terminal.
 * Select the kernel:
 
 ![Alt text](./images/select-kernel.png)
