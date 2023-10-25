@@ -1,16 +1,18 @@
 import logging
+import os
 from pathlib import Path
 
 import pandas as pd
 from config.config import params
 from feature_engine.encoding import OneHotEncoder
 from feature_engine.imputation import CategoricalImputer
-from model_trainer import ModelTrainer
+from ml_workflow.model_trainer import ModelTrainer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 
+N_SPLITS = int(os.getenv('N_SPLITS'))
+
 current_directory = Path(__file__).parent
-source_directory = current_directory.parent
 
 def split_dataset(csv_path: Path, random_state: int = 10)-> tuple:
     '''
@@ -33,18 +35,18 @@ def preprocess(X, y, params: dict)->pd.DataFrame:
     pipeline = Pipeline(steps)    
     return pipeline.fit_transform(X, y)
     
-def main(params: dict):
+def train_model(params: dict):
     logging.info('splitting dataset...')
-    X_train, X_test, y_train, y_test = split_dataset(source_directory/params['csv_name'])
+    X_train, X_test, y_train, y_test = split_dataset(current_directory/params['csv_name'])
 
     logging.info('preprocessing train dataset...')
     processed_full_train = preprocess(X_train, y_train, params)  
     
     modelTrainer = ModelTrainer(params)        
-    modelTrainer.cross_validation_scores(processed_full_train, y_train)
+    modelTrainer.cross_validation_scores(processed_full_train, y_train, n_splits=N_SPLITS)
     modelTrainer.train(X_train, y_train)    
     modelTrainer.evaluate(X_test, y_test)    
-    modelTrainer.persist_pipeline(source_directory/'pipeline.pkl')
+    modelTrainer.persist_pipeline(current_directory/'pipeline.pkl')
     
 if __name__ == '__main__':
-    main(params)
+    train_model(params)

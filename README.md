@@ -40,7 +40,6 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 ├── images/                          # Assets
 ├── notebooks/                       # Notebooks used to explore data and select the best model
 ├── .env.example                     # Template to set environment variables
-├── .pre-commit-config.yaml          # Configuration file for pre-commit hooks
 ├── docker-compose.yaml              # Docker configuration for building the application
 ├── Dockerfile                       # Docker configuration for building the application
 ├── Makefile                         # Configuration of commands to automate the applications
@@ -67,10 +66,11 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 
 ## Running the app
 
-Run `make start_services` which uses Docker (recommendable) in order to start the following services:
+Run `make start_services` which fetches the dataset from Kaggle, train the model and start the services using docker-compose:
 
 * `http://localhost:8501`: Streamlit UI
 * `http://localhost:8080`: Backend service
+
 
 The output should look like this:
 

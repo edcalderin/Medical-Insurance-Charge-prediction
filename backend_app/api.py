@@ -6,14 +6,18 @@ from fastapi.responses import HTMLResponse
 from fetch_kaggle_dataset import FetchKaggleDataset
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
+from train import train_model
 
 app = FastAPI(title=params['title'])
 
 current_directory = Path(__file__).parent
-modelPredict = ModelPredict(current_directory/'pipeline.pkl')
 
 fetch_dataset = FetchKaggleDataset()
 fetch_dataset.get_dataset()
+
+train_model(params)
+
+modelPredict = ModelPredict(current_directory/'pipeline.pkl')
 
 @app.get('/', name='Welcome endpoint', description='Generates a HTML output')
 def root():
