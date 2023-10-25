@@ -19,8 +19,8 @@
     * [Streamlit UI](#streamlit-ui)
     * [Backend service](#backend-service)
 * [Running the app (Manually)](#running-the-app)
-    * [Backend service](#backend-service)
-    * [Streamlit UI](#streamlit-ui)
+    * [Backend service](#backend-service-1)
+    * [Streamlit UI](#streamlit-ui-1)
 * [Notebooks](#notebooks)
 * [References](#references)
 <!--te-->
@@ -76,7 +76,7 @@ Run `make start_services` to start the services using docker-compose:
 
 The output should look like this:
 
-![Alt text](./images/output.png)
+![Alt text](./images/docker_output.png)
 
 * ### Streamlit UI
 
@@ -119,7 +119,7 @@ A virtual environment will be needed to run the app manually, run the following 
 
 Run notebooks in `notebooks/` directory to conduct Exploratory Data Analysis and experiment with features selection using Feature-engine module ideally created for these purposes (See [References](#references) for further information). Diverse experiments were carry out using Linear Regression, RandomForest and XGBoost. The resultant features were persistent into a [yaml file](./backend_app/config/params.yaml) file containing other global properties.
 
-To reproduce the notebooks, you will need to follow the steps 1 to 3 from [Backend service](#backend-api-swagger)
+To reproduce the notebooks, you will need to follow the steps 1 to 3 from [Backend service (Manually steps)](#backend-service-1)
 
 From VSCode
 
