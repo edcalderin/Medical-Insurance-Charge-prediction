@@ -1,9 +1,7 @@
 name: Linter
 
 on:
-    pull_request: 
-        branches:
-        - master
+    push: 
         paths: 
         - backend_app/**
         - frontend_streamlit/**

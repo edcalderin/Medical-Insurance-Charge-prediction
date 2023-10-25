@@ -1,6 +1,6 @@
 [tool.ruff]
 line-length = 100  # defaults to 88 like black
-target-version = "py310"
+target-version = "py311"
 
 select = [
   "E",   # pycodestyle
