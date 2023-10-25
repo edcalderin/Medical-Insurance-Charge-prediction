@@ -7,8 +7,8 @@ start_server:
 fetch_dataset:
 	cd backend_app && python fetch_kaggle_dataset.py
 
-train:
-	export PYTHONPATH=.; cd backend_app && python ml_workflow/train.py
+train: fetch_dataset
+	export PYTHONPATH=.; cd backend_app && python train.py
 
 start_ui:
 	cd streamlit_ui && streamlit run app.py
@@ -16,5 +16,5 @@ start_ui:
 start_services:
 	docker-compose up --build
 
-make ruff:
+ruff:
 	ruff check backend_app/ frontend_streamlit/
