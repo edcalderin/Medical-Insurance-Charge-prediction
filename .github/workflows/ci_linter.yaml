@@ -20,3 +20,5 @@ jobs:
 
             - name: Ruff linter
               uses: chartboost/ruff-action@v1
+              with:
+                src: "/backend_app /frontend_streamlit"
