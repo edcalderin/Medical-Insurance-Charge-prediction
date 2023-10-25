@@ -15,3 +15,6 @@ start_ui:
 
 start_services:
 	docker-compose up --build
+
+make ruff:
+	ruff check backend_app/ frontend_streamlit/

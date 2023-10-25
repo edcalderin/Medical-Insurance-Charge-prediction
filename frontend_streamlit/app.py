@@ -1,6 +1,6 @@
+import requests
 import os
 
-import requests
 import streamlit as st
 
 
@@ -51,7 +51,7 @@ def main():
                 'smoker': smoker,
                 'region': region,
                 'medical_history': None if medical_history=='Healthy' else medical_history,
-                'family_medical_history': None  \
+                'family_medical_history': None \
                                         if family_medical_history=='Healthy' \
                                         else medical_history,
                 'exercise_frequency': exercise_frequency,
