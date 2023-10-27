@@ -69,7 +69,8 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 
 ## Running the app (Docker)
 
-Run `make start_services` to start the services using docker-compose:
+* Run `make train` to fetch the dataset, carry out cross-validation and train the model.
+* Run `docker-compose up --build` (first time, ignore `--build` flag to start containers later) to start the services.
 
 * `http://localhost:8501` (Streamlit UI)
 * `http://localhost:8080` (Backend service): Not only start a Uvicorn server, but fetches the dataset from Kaggle and train the model in the startup app.
@@ -80,7 +81,7 @@ The output should look like this:
 
 * ### Streamlit UI
 
-User interface designed using Streamlit and meant to interact with backend endpoints:
+User interface designed using Streamlit to interact with backend endpoints:
 
 ![Alt text](./images/streamlit-ui.png)
 
@@ -111,7 +112,7 @@ A virtual environment will be needed to run the app manually, run the following 
 3. `cd frontend_streamlit`
 4. `poetry shell` *Make sure the environment is activated by running `poetry env info`*
 5. `poetry install`
-6. Set the enpoint url variable: `export ENDPOINT_URL=http://localhost:8080`
+6. In the same terminal, set the enpoint url variable: `export ENDPOINT_URL=http://localhost:8080`
 7. `streamlit run app.py`
 8. Go to `http://localhost:8501`
 
