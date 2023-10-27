@@ -4,11 +4,14 @@ from pathlib import Path
 
 import pandas as pd
 from config.config import params
+from dotenv import load_dotenv
 from feature_engine.encoding import OneHotEncoder
 from feature_engine.imputation import CategoricalImputer
 from ml_workflow.model_trainer import ModelTrainer
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
+
+load_dotenv()
 
 N_SPLITS = int(os.getenv('N_SPLITS'))
 

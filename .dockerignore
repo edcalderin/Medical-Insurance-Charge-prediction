@@ -4,4 +4,7 @@ backend_app/insurance_dataset.csv
 backend_app/pipeline.pkl# Elastic Beanstalk Files
 .elasticbeanstalk/*
 .git
+.gitignore# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
 .gitignore
