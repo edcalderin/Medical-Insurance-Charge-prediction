@@ -2,22 +2,28 @@ from pathlib import Path
 
 from config.config import params
 from fastapi import FastAPI
+from contextlib import asynccontextmanager
 from fastapi.responses import HTMLResponse
 from fetch_kaggle_dataset import FetchKaggleDataset
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
 from train import train_model
 
-app = FastAPI(title=params['title'])
 
 current_directory = Path(__file__).parent
+resource = {}
 
-fetch_dataset = FetchKaggleDataset()
-fetch_dataset.get_dataset()
+@asynccontextmanager
+async def startup_event(_: FastAPI):
+    # Initialize the dataset and model asynchronously
+    fetch_dataset = FetchKaggleDataset()
+    fetch_dataset.get_dataset()
+    train_model(params)
+    resource['model_predict'] = ModelPredict(current_directory/'pipeline.pkl')
+    yield
+    resource.clear()
 
-train_model(params)
-
-modelPredict = ModelPredict(current_directory/'pipeline.pkl')
+app = FastAPI(title=params['title'], lifespan=startup_event)
 
 @app.get('/', name='Welcome endpoint', description='Generates a HTML output')
 def root():
@@ -31,5 +37,5 @@ def root():
 
 @app.post('/predict', name='Prediction endpoint', description='Endpoint to make a prediction')
 def predict(customer: Customer):
-    prediction = modelPredict.predict(customer)
+    prediction = resource['model_predict'].predict(customer)
     return {'prediction': prediction}

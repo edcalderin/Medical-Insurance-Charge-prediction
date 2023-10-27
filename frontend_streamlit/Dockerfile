@@ -20,4 +20,6 @@ ENV PATH="/frontend_streamlit/.venv/bin:$PATH"
 
 COPY app.py .
 
+EXPOSE 8501
+
 ENTRYPOINT ["streamlit", "run", "app.py"]
