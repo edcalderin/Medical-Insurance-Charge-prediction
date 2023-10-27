@@ -4,20 +4,14 @@ from pathlib import Path
 from config.config import params
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-from fetch_kaggle_dataset import FetchKaggleDataset
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
-from train import train_model
 
 current_directory = Path(__file__).parent
 resource = {}
 
 @asynccontextmanager
 async def startup_event(_: FastAPI):
-    # Initialize the dataset and model asynchronously
-    fetch_dataset = FetchKaggleDataset()
-    fetch_dataset.get_dataset()
-    train_model(params)
     resource['model_predict'] = ModelPredict(current_directory/'pipeline.pkl')
     yield
     resource.clear()

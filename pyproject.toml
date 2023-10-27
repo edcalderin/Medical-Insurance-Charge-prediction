@@ -25,6 +25,7 @@ feature-engine = "^1.6.2"
 kaggle = "^1.5.16"
 pyyaml = "^6.0.1"
 uvicorn = "^0.23.2"
+python-dotenv = "^1.0.0"
 
 
 [tool.poetry.group.dev.dependencies]
