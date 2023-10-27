@@ -2,7 +2,7 @@ include .env
 export
 
 start_server:
-	cd backend_app && bash start_server.sh
+	cd backend_app && uvicorn --host=0.0.0.0 --port=8080 api:app
 
 fetch_dataset:
 	cd backend_app && python fetch_kaggle_dataset.py

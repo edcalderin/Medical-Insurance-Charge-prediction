@@ -22,6 +22,4 @@ COPY backend_app/ .
 
 EXPOSE 8080
 
-RUN chmod +x start_server.sh
-
-ENTRYPOINT [ "bash", "start_server.sh" ]
+ENTRYPOINT [ "uvicorn", "--host=0.0.0.0", "--port=8080", "api:app" ]

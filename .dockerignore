@@ -1,4 +1,7 @@
 **/*/__pycache__/
 *.pyc
 backend_app/insurance_dataset.csv
-backend_app/pipeline.pkl
+backend_app/pipeline.pkl# Elastic Beanstalk Files
+.elasticbeanstalk/*
+.git
+.gitignore
