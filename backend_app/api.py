@@ -1,14 +1,13 @@
+from contextlib import asynccontextmanager
 from pathlib import Path
 
 from config.config import params
 from fastapi import FastAPI
-from contextlib import asynccontextmanager
 from fastapi.responses import HTMLResponse
 from fetch_kaggle_dataset import FetchKaggleDataset
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
 from train import train_model
-
 
 current_directory = Path(__file__).parent
 resource = {}
