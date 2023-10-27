@@ -18,11 +18,7 @@ COPY --from=builder /backend_app .
 
 ENV PATH="/backend_app/.venv/bin:$PATH"
 
-COPY .env /backend_app/
-
 COPY backend_app/ .
-
-RUN python fetch_kaggle_dataset.py && python train.py
 
 EXPOSE 8080
 
