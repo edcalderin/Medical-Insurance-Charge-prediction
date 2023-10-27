@@ -4,3 +4,9 @@
 *.pkl
 __pycache__
 .ruff_cache
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+
+deploy.MD

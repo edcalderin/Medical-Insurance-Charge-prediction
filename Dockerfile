@@ -20,4 +20,6 @@ ENV PATH="/backend_app/.venv/bin:$PATH"
 
 COPY backend_app/ .
 
+EXPOSE 8080
+
 ENTRYPOINT [ "bash", "start_server.sh" ]
