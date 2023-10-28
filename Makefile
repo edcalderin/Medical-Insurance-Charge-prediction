@@ -1,7 +1,6 @@
 include .env
 export
 
-
 fetch_dataset:
 	cd backend_app && python fetch_kaggle_dataset.py
 
@@ -9,13 +8,18 @@ train: fetch_dataset
 	cd backend_app && python train.py
 
 start_server: train
-	cd backend_app && uvicorn --host=0.0.0.0 --port=8080 api:app
+	cd backend_app && bash start_server.sh
 
 start_ui:
 	cd streamlit_ui && streamlit run app.py
 
-start_services:
+## Build or up services
+build_services:
 	docker-compose up --build
 
+up_services:
+	docker-compose up
+
+## Linter
 ruff:
 	ruff check backend_app/ frontend_streamlit/
