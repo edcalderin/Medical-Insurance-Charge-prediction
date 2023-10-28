@@ -15,7 +15,7 @@
 * [Problem statement](#problem-statement)
 * [Directory layout](#directory-layout)
 * [Setup](#setup)
-* [Running the app with Docker (Recommended)](#running-the-app-docker-recommended)
+* [Running the app with Docker (Recommended)](#running-the-app-with-docker-recommended)
     * [Streamlit UI](#streamlit-ui)
     * [Backend service](#backend-service)
 * [Running the app manually](#running-the-app-manually)
@@ -105,7 +105,7 @@ A virtual environment will be needed to run the app manually, run the following 
 4. `make start_server`
 5. Go to `http://localhost:8080` (Swagger doc)
 
-### Frontend UI
+### Streamlit UI
 
 1. Open a new terminal.
 2. Run `deactivate` just in case if the backend service environment is activated.
@@ -134,7 +134,7 @@ From Jupyter Notebook:
 
 ## Application running on Cloud
 
-The application has been deployed to AWS ElasticBeanstalk separately using `eb` command.
+The application has been deployed to cloud using AWS ElasticBeanstalk, both frontend and backend were separately deployed using `eb` command:
 
 * Frontend: http://medical-insurance-charges-frontend-env.eba-gqxzgsm2.us-east-2.elasticbeanstalk.com/
 * Backend: http://medical-insurance-backend-env.eba-fv2x9xjx.us-east-2.elasticbeanstalk.com/
