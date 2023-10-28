@@ -6,7 +6,6 @@ from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 from ml_workflow.model_predict import ModelPredict
 from schemas.customer import Customer
-from fastapi.middleware.cors import CORSMiddleware
 
 current_directory = Path(__file__).parent
 resource = {}
@@ -18,16 +17,6 @@ async def startup_event(_: FastAPI):
     resource.clear()
 
 app = FastAPI(title=params['title'], lifespan=startup_event)
-
-origins = ["*"]
-
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
 
 @app.get('/', name='Welcome endpoint', description='Generates a HTML output')
 def root():
