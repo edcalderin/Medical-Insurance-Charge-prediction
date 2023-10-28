@@ -20,6 +20,6 @@ ENV PATH="/backend_app/.venv/bin:$PATH"
 
 COPY backend_app/ .
 
-EXPOSE 9696
+EXPOSE 8080
 
-ENTRYPOINT [ "uvicorn", "--host=0.0.0.0", "--port=9696", "api:app" ]
+ENTRYPOINT [ "uvicorn", "--host=0.0.0.0", "--port=8080", "api:app" ]
