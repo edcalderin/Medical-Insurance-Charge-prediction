@@ -3,6 +3,9 @@
 .ipynb_checkpoints
 __pycache__
 .ruff_cache
+*.csv
+*.pkl
+
 # Elastic Beanstalk Files
 .ebextensions
 .elasticbeanstalk/*

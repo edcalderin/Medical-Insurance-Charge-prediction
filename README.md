@@ -15,13 +15,14 @@
 * [Problem statement](#problem-statement)
 * [Directory layout](#directory-layout)
 * [Setup](#setup)
-* [Running the app (Docker)](#running-the-app-docker)
+* [Running the app with Docker (Recommended)](#running-the-app-docker-recommended)
     * [Streamlit UI](#streamlit-ui)
     * [Backend service](#backend-service)
-* [Running the app (Manually)](#running-the-app-manually)
+* [Running the app manually](#running-the-app-manually)
     * [Backend service](#backend-service-1)
     * [Streamlit UI](#streamlit-ui-1)
 * [Notebooks](#notebooks)
+* [Application running on Cloud](#application-running-on-cloud)
 * [References](#references)
 <!--te-->
 
@@ -43,8 +44,8 @@ The Health Insurance Premium Prediction Database for the United States" is a com
 ├── images/                          # Assets
 ├── notebooks/                       # Notebooks used to explore data and select the best model
 ├── .env.example                     # Template to set environment variables
-├── docker-compose.yaml              # Docker configuration for building the application
-├── Dockerfile                       # Docker configuration for building the application
+├── docker-compose.yaml              # To orchestrate containers locally
+├── Dockerfile                       # Docker image for backend application
 ├── Makefile                         # Configuration of commands to automate the applications
 ├── poetry.lock                      # Requirements for development and production
 └── pyproject.toml                   # Project metadata and dependencies
@@ -67,10 +68,9 @@ The Health Insurance Premium Prediction Database for the United States" is a com
     * Then, `choco install make`.
 <!--te-->
 
-## Running the app (Docker)
+## Running the app with Docker (Recommended)
 
-* Run `make train` to fetch the dataset, carry out cross-validation and train the model.
-* Run `docker-compose up --build` (first time, ignore `--build` flag to start containers later) to start the services.
+Run `make build_services` to start the services at first time or `make up_services` to start services after the initial build
 
 * `http://localhost:8501` (Streamlit UI)
 * `http://localhost:8080` (Backend service): Not only start a Uvicorn server, but fetches the dataset from Kaggle and train the model in the startup app.
@@ -93,7 +93,7 @@ Swagger documentation for FastAPI backend:
 
 * Stop the services with `docker-compose down`
 
-## Running the app (Manually)
+## Running the app manually
 
 ### Backend service
 
@@ -103,7 +103,7 @@ A virtual environment will be needed to run the app manually, run the following 
 2. `poetry shell`
 3. `poetry install`
 4. `make start_server`
-5. (Optional) Go to `http://localhost:8080`
+5. Go to `http://localhost:8080` (Swagger doc)
 
 ### Frontend UI
 
@@ -131,6 +131,13 @@ From Jupyter Notebook:
 * Select the kernel:
 
 ![Alt text](./images/select-kernel.png)
+
+## Application running on Cloud
+
+The application has been deployed to AWS ElasticBeanstalk separately using `eb` command.
+
+* Frontend: http://medical-insurance-charges-frontend-env.eba-gqxzgsm2.us-east-2.elasticbeanstalk.com/
+* Backend: http://medical-insurance-backend-env.eba-fv2x9xjx.us-east-2.elasticbeanstalk.com/
 
 ## References
 
