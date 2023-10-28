@@ -134,6 +134,8 @@ From Jupyter Notebook:
 
 ## Application running on Cloud
 
+![Alt text](./images/awseb.png)
+
 The application has been deployed to cloud using AWS ElasticBeanstalk, both frontend and backend were separately deployed using `eb` command:
 
 * Frontend: http://medical-insurance-charges-frontend-env.eba-gqxzgsm2.us-east-2.elasticbeanstalk.com/
