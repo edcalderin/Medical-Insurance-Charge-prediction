@@ -22,4 +22,4 @@ COPY backend_app/ .
 
 EXPOSE 8080
 
-ENTRYPOINT [ "uvicorn", "--host=0.0.0.0", "--port=8080", "api:app" ]
+ENTRYPOINT ["gunicorn", "--bind=0.0.0.0:8080", "api:app"]
