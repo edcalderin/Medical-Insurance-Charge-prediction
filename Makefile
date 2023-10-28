@@ -23,3 +23,6 @@ up_services:
 ## Linter
 ruff:
 	ruff check backend_app/ frontend_streamlit/
+
+ruff_fix:
+	ruff check backend_app/ frontend_streamlit/ --fix
