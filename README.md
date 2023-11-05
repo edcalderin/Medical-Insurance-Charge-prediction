@@ -146,8 +146,8 @@ The application has been deployed to cloud using AWS ElasticBeanstalk, both fron
 * Frontend: http://medical-insurance-charges-frontend-env.eba-gqxzgsm2.us-east-2.elasticbeanstalk.com/
 * Backend: http://medical-insurance-backend-env.eba-fv2x9xjx.us-east-2.elasticbeanstalk.com/
 
-> [!NOTE]
-> The entire application will be unavailable when deadline is over.
+> [!WARNING]
+> After mid-term deadline, these cloud services will no longer be accessible.
 
 ## Checkpoints
 
