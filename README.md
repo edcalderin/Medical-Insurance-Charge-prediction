@@ -23,12 +23,13 @@
     * [Streamlit UI](#streamlit-ui-1)
 * [Notebooks](#notebooks)
 * [Application running on Cloud](#application-running-on-cloud)
+* [Checkpoints](#checkpoints)
 * [References](#references)
 <!--te-->
 
 ## Problem statement
 
-The Health Insurance Premium Prediction Database for the United States" is a compilation of information regarding a range of elements that have an impact on healthcare expenses and insurance premiums in the United States. This database encompasses details on ten distinct variables, encompassing age, gender, body mass index (BMI), the number of dependents, smoking habits, geographical location, income level, educational attainment, profession, and the nature of the insurance plan. The dataset was constructed using a program that produced a million records of randomly selected data points, ensuring the dataset accurately represents the insured population in the United States. This dataset can be harnessed for the creation and validation of machine learning models to anticipate insurance premiums and investigate the interplay among various factors and medical expenditures.
+This project aims to support individuals seeking approximate values for their medical insurance costs. Whether they are moving to a different state within United State or are foreigner recently relocated to they country, there arises a need for an algorithm which predicts these costs. This way, the end-user can determine whether or not they can afford the resulting charges. To achieve this goal, the Health Insurance Premium Prediction Database for the United States" [(See on references)](#references) was utilized and comprises information regarding a range of elements that have an impact on healthcare expenses and insurance premiums in the United States. This database encompasses details on ten distinct variables, encompassing age, gender, body mass index (BMI), the number of dependents, smoking habits, geographical location, income level, educational attainment, profession, and the nature of the insurance plan. All of these features were analyzed to extract useful insight and observe patterns among them. As a result, a LinearRegression model was trained, validated and deployed in real time to provide predictions for medical insurance charges.
 
 
 ## Directory layout
@@ -132,6 +133,10 @@ From Jupyter Notebook:
 
 ![Alt text](./images/select-kernel.png)
 
+The following is a picture obtained from the `model_selection.ipynb` notebook displaying the error distribution of the Linear Regression model which achieved the best performance.
+
+![Alt text](./images/model-selection.png)
+
 ## Application running on Cloud
 
 ![Alt text](./images/awseb.png)
@@ -140,6 +145,25 @@ The application has been deployed to cloud using AWS ElasticBeanstalk, both fron
 
 * Frontend: http://medical-insurance-charges-frontend-env.eba-gqxzgsm2.us-east-2.elasticbeanstalk.com/
 * Backend: http://medical-insurance-backend-env.eba-fv2x9xjx.us-east-2.elasticbeanstalk.com/
+
+> [!NOTE]
+> The entire application will be unavailable when deadline is over.
+
+## Checkpoints
+
+- [x] Problem description
+- [x] EDA
+- [x] Model training
+- [x] Exporting notebook to script
+- [x] Reproducibility
+- [x] Model deployment
+- [x] Dependency and enviroment management
+- [x] Containerization (Docker with multi-stage)
+- [x] Cloud deployment
+- [x] Linter
+- [x] CI/CD workflow (Only to analyze the code with linter)
+- [ ] Pipeline orchestration
+- [ ] Unit tests
 
 ## References
 
