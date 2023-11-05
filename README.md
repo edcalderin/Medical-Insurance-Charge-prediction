@@ -23,6 +23,7 @@
     * [Streamlit UI](#streamlit-ui-1)
 * [Notebooks](#notebooks)
 * [Application running on Cloud](#application-running-on-cloud)
+* [Checkpoints](#checkpoints)
 * [References](#references)
 <!--te-->
 
