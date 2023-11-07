@@ -143,7 +143,7 @@ The following is a picture obtained from the `model_selection.ipynb` notebook di
 
 The application has been deployed to cloud using AWS ElasticBeanstalk, both frontend and backend were separately deployed using `eb` command:
 
-Deploy backend app
+**Deploy backend app**
 
 1. In root project directory: `eb init`  
 Follow the steps after enter the command, but make sure to pick `Docker running on 64bit Amazon Linux 2` in Docker plataform question.
@@ -158,7 +158,8 @@ N_SPLITS=4
 ```
 Replace `<kaggle_username>` and `<kaggle_key>` with your Kaggle credentials. It is optional to modify `N_SPLITS` variable with other integer values. Addionally, it is neccesary to use a more robust EC2 instance namely `m5.large` as the training and validation of the model is carried out by creating and running the container. 
 
-Deploy frontend app
+**Deploy frontend app**
+
 1. Navigate to the frontend application directory: `cd frontend_streamlit`
 2. `eb init` (Same steps as backend app)
 3. Then: 
@@ -167,6 +168,8 @@ Deploy frontend app
 eb create medical-insurance-charges-frontend-env --envvars ENDPOINT_URL=<endpoint_url>
 ```
 You must replace `<endpoint_url>` with the endpoint url resulting from deploying the backend application and **removing "/" character in the end of the url**
+
+***Application working***
 
 As a result, you will be able to see the applications running on AWS cloud:
 
